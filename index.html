@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facebook Profile Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="wrapper">
+    <section class="glass-card">
+
+      <!-- HEADER -->
+      <header class="header">
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <h1 id="titleText">Facebook Login</h1>
+        <p id="subtitleText">Sign in to view your Facebook profile</p>
+      </header>
+
+      <!-- LOGIN BUTTON -->
+      <button id="loginBtn" class="fb-login-btn">
+        <span class="fb-icon">f</span>
+        Login with Facebook
+      </button>
+
+      <!-- STATES -->
+      <div id="loading" class="state loading hidden">
+        Authenticating...
+      </div>
+
+      <div id="error" class="state error"></div>
+
+      <!-- RESULT -->
+      <div id="result"></div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>
+      Powered by
+      <a href="https://developers.facebook.com/docs/graph-api" target="_blank">
+        Facebook Graph API
+      </a>
+    </span>
+  </footer>
+
+  <!-- Facebook SDK -->
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js">
+  </script>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

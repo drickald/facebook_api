@@ -1,0 +1,261 @@
+/* ==============================
+   CSS VARIABLES
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #1877f2;
+  --accent-dark: #155ec9;
+
+  --bg-dark: radial-gradient(circle at top, #1b3a57, #0b1c2d);
+  --bg-light: #cbe1ff;
+
+  --card-dark: rgba(255, 255, 255, 0.14);
+  --card-light: #e7faff;
+
+  --text-dark: #ffffff;
+  --text-light: #111111;
+
+  --muted-dark: rgba(255,255,255,0.7);
+  --muted-light: #555;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+/* LIGHT MODE */
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* ==============================
+   LAYOUT
+============================== */
+.wrapper {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.glass-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 32px;
+  border-radius: 22px;
+  background: var(--card-dark);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: pop 0.6s ease;
+}
+
+body.light .glass-card {
+  background: var(--card-light);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+/* ==============================
+   HEADER
+============================== */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  font-size: 14px;
+  margin-top: 6px;
+  color: var(--muted-dark);
+}
+
+body.light .header p {
+  color: var(--muted-light);
+}
+
+/* ==============================
+   THEME TOGGLE BUTTON
+============================== */
+.theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+============================== */
+.fb-login-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 12px 30px rgba(24,119,242,0.4);
+}
+
+.fb-login-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fb-login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fb-icon {
+  background: #fff;
+  color: var(--accent);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+/* ==============================
+   STATES
+============================== */
+.state {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.loading {
+  color: var(--muted-dark);
+}
+
+.error {
+  color: #ffb4b4;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ==============================
+   PROFILE VIEWER CARD
+============================== */
+.viewer-card {
+  margin-top: 30px;
+  padding: 28px 24px;
+  border-radius: 20px;
+  text-align: center;
+  animation: fadeUp 0.5s ease;
+}
+
+.viewer-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.4);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  margin-bottom: 18px;
+}
+
+body.light .viewer-avatar {
+  border-color: #e0e0e0;
+}
+
+.viewer-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.viewer-email {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  height: 90px;
+  align-content: center;
+  padding: 14px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ==============================
+   ANIMATIONS
+============================== */
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

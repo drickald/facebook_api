@@ -44,6 +44,8 @@ The project is set to **Public** and is intended for practice and academic purpo
 ## 🧩 Technologies Used
 
 - CSS
+- HTML
+- JavaScript
 
 ---
 
